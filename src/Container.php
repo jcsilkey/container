@@ -2,7 +2,7 @@
 
 namespace League\Container;
 
-use Interop\Container\ContainerInterface as InteropContainerInterface;
+use Psr\Container\ContainerInterface as PsrContainerInterface;
 use League\Container\Argument\RawArgumentInterface;
 use League\Container\Definition\DefinitionFactory;
 use League\Container\Definition\DefinitionFactoryInterface;
@@ -46,7 +46,7 @@ class Container implements ContainerInterface
     protected $shared = [];
 
     /**
-     * @var \Interop\Container\ContainerInterface[]
+     * @var \Psr\Container\ContainerInterface[]
      */
     protected $delegates = [];
 
@@ -215,10 +215,10 @@ class Container implements ContainerInterface
      * Delegate a backup container to be checked for services if it
      * cannot be resolved via this container.
      *
-     * @param  \Interop\Container\ContainerInterface $container
+     * @param  \Psr\Container\ContainerInterface $container
      * @return $this
      */
-    public function delegate(InteropContainerInterface $container)
+    public function delegate(PsrContainerInterface $container)
     {
         $this->delegates[] = $container;
 
